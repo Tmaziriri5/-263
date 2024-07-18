@@ -1,0 +1,448 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Notable&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+    list-style: none;
+    text-decoration: none;
+}
+
+html[data-color="true"]{
+    color-scheme: dark;
+}
+
+:root {
+    --ligthgray: rgb(218, 218, 218);
+    --backgroundwhite: rgb(240, 240, 240);
+    --niceblue: rgb(44, 99, 202);
+    --yellowmellow: rgb(255, 217, 0);
+    --bordergray: rgb(105, 105, 105);
+    --black: black;
+    --grayh1: rgb(48, 48, 48);
+
+    --gradientblue: linear-gradient(
+        90deg,
+        rgb(79, 165, 182) 20%,
+        rgb(36, 81, 179) 80%,
+        rgb(30, 30, 156)
+    );
+
+    --redtoblue: linear-gradient(90deg, red, blue) 1;
+
+    --footercolor: rgb(20, 20, 20);
+
+    --gradientyellow: radial-gradient(
+        circle at top left,
+        var(--yellowmellow),
+        transparent
+    );
+
+    --transformPerspective: 
+    perspective(250px)
+    rotateX(10deg)
+    translateY(-5%)
+    translateZ(0);
+
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.titles {
+    border-radius: 5px;
+    padding: 10px;
+    background: var(--gradientblue);
+    margin-bottom: 20px;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+/*NAVIGATION BAR START*/
+
+.mobile-nav-toggle {
+    position: absolute;
+    aspect-ratio: 1;
+    width: 2.6rem;
+    top: 1.9rem;
+    right: 1.5rem;
+    background-image: url(./assets/svg-icons/bars-solid.svg);
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    transition: all .4s ease-out;
+    z-index: 9999;
+}
+
+.mobile-nav-toggle[aria-expanded="true"]{
+    background-image: url(./assets/svg-icons/xmark-solid.svg);
+    transition: all .4s ease-in;
+    position: fixed;
+    width: 3rem;
+}
+
+.fa-bars {
+    font-size: 2.5rem;
+    color: var(--backgroundwhite);
+}
+
+.buttonBckground {
+    position: fixed;
+    top: 86vh;
+    right: 2rem;
+
+    display: grid;
+    place-content: end;
+
+    width: 22%;
+    height: fit-content;
+
+    border-radius: 30px;
+
+    z-index: 9998;
+    padding: 5px;
+
+    background-color: var(--yellowmellow);
+
+    transition: all 0.4s ease-in;
+
+    cursor: pointer;
+    
+}
+
+.darkModeToggle {
+    aspect-ratio: 1;
+    width: 1.7rem;
+    background-image: url(./assets/svg-icons/circle-half-stroke-solid.svg);
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    transition: all 0.2s ease-in;
+    cursor: pointer;
+}
+
+.buttonBckground[data-visible="true"]{
+    background-color: rgb(29, 29, 95);
+    place-content: start;
+    transition: all 0.2s ease-in;
+}
+
+.navbar {
+    width: 100%;
+    height: 15vh;
+    background: var(--gradientblue)
+    
+}
+
+header p {
+    border-radius: 50%;
+    display: inline;
+    position: absolute;
+    width: 30%;
+    top: 20px;
+    left: 10px;
+    color: var(--backgroundwhite);
+    text-align: center;
+}
+
+.navicons {
+    position: fixed;
+    width: 250px;
+    right: 0;
+    transform: translateX(100%);
+    height: 100vh;
+    background: hsl(0 0% 0% / 0.8);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease-in;
+    z-index: 1000;
+}
+
+.navicons[data-visible="true"]{
+    transform: translateX(0%);
+
+}
+
+.navicons .navicon {
+    margin: 20px;
+    padding: 10px;
+    border: 2px solid;
+    border-image: var(--redtoblue);
+}
+
+.navicons .navicon a {
+    color: var(--niceblue);
+    margin-left: 10px;
+    letter-spacing: 2px;
+}
+
+
+@supports (backdrop-filter: blur(1.5rem)) {
+    .navicons {
+        background: hsl(250 100% 20% / 0.1);
+        backdrop-filter: blur(1.5rem);
+    }
+
+    .navicons .navicon a {
+        color: black;
+    }
+}
+
+/*NAVIGATION BAR END*/
+
+/*MAIN SECTION START*/
+
+.border {
+    background: var(--gradientblue);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+}
+
+.graysections {
+    background-color: var(--ligthgray);
+}
+
+section {
+    width: 100%;
+    height: 100vh;
+    padding: 25px;
+    margin: 15px auto 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/*PRESENTATION START*/
+
+#presentation {
+    width: 90%;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+#presentation h2 {
+    background-image: var(--gradientblue);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    font-size: 18px;
+    font-weight: 400;
+    margin: 20px 0;
+}
+
+#presentation h1 {
+    font-family: 'Notable', sans-serif;
+    font-size: 2rem;
+    letter-spacing: 2px;
+    border-radius: 30px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--grayh1);
+    padding: 20px;
+    border: 4px solid;
+    border-image: radial-gradient(
+        circle at top left,
+        var(--niceblue),
+        transparent 60%) 1;
+
+}
+
+#presentation p {
+    font-weight: 300;
+    font-size: 18px;
+    text-align: justify;
+    width: 90%;
+}
+
+/*PRESENTATION END*/
+
+/*ABOUT SECTION START*/
+
+#about {
+    padding: 20px;
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+}
+
+#about img {
+    width: 70%;
+    aspect-ratio: 1;
+    border-radius: 100%;
+    margin-bottom: 20px;
+    transition: all .2s ease-in;
+}
+
+#about p {
+    font-weight: 300;
+    width: 90%;
+}
+
+/*ABOUT SECTION END*/
+
+/*QUALITIES SECTION START*/
+
+#qualities {
+    padding: 0;
+    height: 100vh;
+}
+
+#containerq {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 20px 0 20px;
+}
+
+.info {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 15px;
+    font-weight: 300;
+    font-style: italic;
+    background: linear-gradient(
+        270deg,
+        var(--backgroundwhite) 40%, 
+        var(--ligthgray) 
+
+    );
+    padding: 10px;
+    border-radius: 40px;
+}
+
+.info:last-of-type {
+    margin-bottom: 0;
+}
+
+.qualitybox {
+    width: 45%;
+    height: 80%;
+    background-color: var(--backgroundwhite);
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}   
+
+.qualitybox i {
+    font-size: 1.8em;
+    color: var(--niceblue);
+}
+
+/*QUALITIES SECTION END*/
+
+/*PROJECTS SECTION START*/
+
+.projectscard {
+    display: grid;
+    gap: 0;
+    grid-template-columns: 60% 60%;
+    width: 95%;
+    height: 95%;
+    background-color: var(--backgroundwhite);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.projectcard {
+    width: 70%;
+    height: 90%;
+    border-radius: 10px;
+    border: 1px solid var(--bordergray);
+    transition: all .2s ease-in;
+}
+
+.projectcard img {
+    width: 100%;
+    height: 70%;
+    border-radius: 10px 10px 0 0;
+}
+
+.projectcard a h4 {
+    font-weight: 300;
+    font-size: 12px;
+}
+
+#projectspart2 {
+    margin: 0;
+}
+
+/*PROJECTS SECTION END*/
+
+/*CONTACT SECTION START*/
+
+#socialicons {
+    border-radius: 20px;
+    padding: 20px;
+    height: 97%;
+    width: 96%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(
+        180deg,
+        var(--backgroundwhite) 50%,
+        var(--ligthgray)
+    );
+}
+
+.fa-brands {
+    padding: 10px;
+    margin: 10px;
+    font-size: 13px;
+    color: var(--black);
+    background-color: var(--niceblue);
+    letter-spacing: 4px;
+    transition: all .2s ease-in;
+}
+
+
+/*CONTACT SECTION END*/
+
+/*MAIN SECTION END*/
+
+/*FOOTER START*/
+
+footer {
+    padding: 20px;
+    color: var(--backgroundwhite);
+    font-weight: 300;
+    font-style: italic;
+    font-size: 14px;
+    background-color: var(--footercolor);
+    display: flex;
+    flex-direction: center;
+    align-items: center;
+}
+
+footer a {
+    width: fit-content;
+}
+
+footer .fa-brands {
+    background-color: transparent;
+    color: var(--backgroundwhite);
+    font-size: 35px;
+    
+}
+
+/*FOOTER END*/
